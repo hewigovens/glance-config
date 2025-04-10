@@ -16,4 +16,4 @@ pages:
 
 branding:
   custom-footer: |
-    <p>Hosted by <a href="https://hewig.dev">hewig.dev</a></p>
+    <p>Hosted on <a href="https://hewig.dev">hewig.dev</a></p>
