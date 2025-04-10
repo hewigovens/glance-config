@@ -1,0 +1,85 @@
+- name: Home
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+    - size: small
+      widgets:
+        - type: calendar
+          first-day-of-week: monday
+        - type: weather
+          location: Tokyo, Japan
+          units: metric
+          hour-format: 24h # alternatively "12h"
+          # hide-location: true
+
+        - type: server-stats
+          servers:
+            - type: local
+              name: Services
+        - type: releases
+          cache: 1d
+          repositories:
+            - glanceapp/glance
+
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+            - type: lobsters
+
+        - type: videos
+          channels:
+            - UCvj3W3zjaIL5RRlECB1kH0g # Sociostanding
+            - UCgQwWhhQskoE_8VrxoHr3EA # Maddie's Do You Know
+            - UCilwQlk62k1z7aUEZPOB6yw # 小Lin说
+            - UCDNeEBgigHHGtJJOpHSnadA # 森纳映画
+            - UCYO_jab_esuFRV4b17AJtAw # 3Blue1Brown
+
+        - type: group
+          widgets:
+            - type: rss
+              limit: 15
+              collapse-after: 7
+              cache: 12h
+              feeds:
+                - url: https://cointelegraph.com/rss
+                  title: CoinTelegraph
+                - url: https://www.coindesk.com/arc/outboundfeeds/rss
+                  title: CoinDesk
+
+    - size: small
+      widgets:
+        - type: custom-api
+          title: Fear & Greed Index
+          cache: 6h
+          url: https://api.alternative.me/fng/
+          template: |
+            {{ range .JSON.Array "data" }}
+              <p class="size-h4 color-paragraph"> Today is {{ .String "value_classification" }} / {{ .String "value" }}</p>
+            {{ end }}
+        - type: markets
+          markets:
+            - symbol: BTC-USD
+              name: Bitcoin
+            - symbol: ETH-USD
+              name: Ethereum
+            - symbol: BNB-USD
+              name: BNB
+            - symbol: SOL-USD
+              name: Solana
+            - symbol: USDJPY=X
+              name: Japanese Yen
+            - symbol: USDCNY=X
+              name: Chinese Yen
+            - symbol: SPY
+              name: S&P 500
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: GOOG
+              name: Google
+          chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
+
+        - type: html
+          source: |
+            <img src="https://utxo.live/hist_utxo_dark.png" alt="UTXO Set" />
