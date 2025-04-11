@@ -15,5 +15,5 @@ docker compose up -d --force-recreate --build
 
 ## Screenshot
 
-![Screenshot](screenshot.jpeg)
+![Screenshot](./screenshot.jpg)
 
