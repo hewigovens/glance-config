@@ -4,8 +4,16 @@
   columns:
     - size: small
       widgets:
-        - type: calendar
-          first-day-of-week: monday
+        - type: clock
+          hour-format: 24h
+          timezones:
+            - timezone: US/Pacific
+              label: San Francisco
+            - timezone: Asia/Shanghai
+              label: Shanghai
+            - timezone: Asia/Dubai
+              label: Dubai
+
         - type: weather
           location: Tokyo, Japan
           units: metric
@@ -16,10 +24,25 @@
           servers:
             - type: local
               name: Services
-        - type: releases
-          cache: 1d
-          repositories:
-            - glanceapp/glance
+
+        - type: bookmarks
+          groups:
+            - title: AI Tools
+              links:
+                - title: Google AI Mode
+                  url: https://www.google.com/aimode
+                - title: Perplexity
+                  url: https://www.perplexity.ai
+                - title: Gemini
+                  url: https://gemini.google.com
+                - title: Grok
+                  url: https://grok.com
+                - title: Claude
+                  url: https://claude.ai
+                - title: ChatGPT
+                  url: https://chat.openai.com
+                - title: GitHub
+                  url: https://github.com/copilot
 
     - size: full
       widgets:
@@ -39,14 +62,30 @@
         - type: group
           widgets:
             - type: rss
+              title: Crypto News
               limit: 15
-              collapse-after: 7
+              collapse-after: 6
               cache: 12h
               feeds:
-                - url: https://cointelegraph.com/rss
-                  title: CoinTelegraph
+                - url: https://cointelegraph.com/editors_pick_rss
+                  title: CoinTelegraph Picks
                 - url: https://www.coindesk.com/arc/outboundfeeds/rss
                   title: CoinDesk
+            - type: iframe
+              title: Dune Index
+              source: https://dune.com/embeds/4207102/7081093?darkMode=true
+              height: 400
+
+            - type: iframe
+              title: Coin Heatmap
+              source: https://coin360.com/widget/map?utm_source=embed_map
+              height: 400
+
+            - type: html
+              title: UTXO Set
+              source: |
+                <img src="https://utxo.live/hist_utxo_dark.png" alt="UTXO Set" />
+              height: 400
 
     - size: small
       widgets:
@@ -80,6 +119,8 @@
               name: Google
           chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
 
-        - type: html
-          source: |
-            <img src="https://utxo.live/hist_utxo_dark.png" alt="UTXO Set" />
+        - type: releases
+          cache: 1d
+          repositories:
+            - rust-lang/rust
+            - glanceapp/glance
