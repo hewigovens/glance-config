@@ -1,16 +1,23 @@
 ## Usage
 
+### Setup
+
+Install `dotenvx` and `just`:
+- `pnpm install -g dotenvx` 
+- `brew install just`
+
+### Run
+
 Run:
-```
-just run
+```bash
+dotenvx run -- just run
 ```
 
 Update:
 
 ```bash
-just update
+dotenvx run -- just update
 ```
-
 
 ## Screenshot
 
