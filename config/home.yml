@@ -103,10 +103,10 @@
                   url: https://gemini.google.com
                 - title: Grok
                   url: https://grok.com
-                - title: GitHub
-                  url: https://github.com/copilot
                 - title: Claude
                   url: https://claude.ai
+                - title: GitHub
+                  url: https://github.com/copilot
                 - title: ChatGPT
                   url: https://chat.openai.com
 
@@ -190,6 +190,17 @@
             - symbol: GOOG
               name: Google
           chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
+
+        - type: custom-api
+          title: GitHub Notifications
+          title-url: https://github.com/notifications
+          url: https://api.github.com/notifications
+          headers:
+            Authorization: Bearer ${GITHUB_TOKEN}
+            Accept: application/vnd.github.v3+json
+          cache: 60m
+          template: |
+            <p class="size-h4">{{ len (.JSON.Array "") }} unread</p>
 
         - type: releases
           cache: 1d
