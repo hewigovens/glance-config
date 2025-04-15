@@ -24,7 +24,73 @@
           servers:
             - type: local
               name: Services
+        - type: custom-api
+          title: Tailscale Devices
+          title-url: https://login.tailscale.com/admin/machines
+          url: https://api.tailscale.com/api/v2/tailnet/-/devices
+          headers:
+            Authorization: Bearer ${TAILSCALE_API_KEY}
+          cache: 60m
+          template: |
+            <style>
+              .update-indicator {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: var(--color-primary);
+                display: inline-block;
+                margin-left: 4px;
+                vertical-align: middle;
+              }
 
+              .offline-indicator {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: var(--color-negative);
+                display: inline-block;
+                margin-left: 4px;
+                vertical-align: middle;
+              }
+
+              .device-name-container {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              }
+
+              .indicators-container {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+              }
+            </style>
+            <ul class="list list-gap-10 collapsible-container" data-collapse-after="4">
+              {{ range .JSON.Array "devices" }}
+              {{ $lastSeen := .String "lastSeen" | parseTime "rfc3339" }}
+              {{ if $lastSeen.After (offsetNow "-10s") }} {{/* Only show if seen recently */}}
+              <li>
+                <div class="flex items-center gap-10">
+                  <div class="device-name-container grow">
+                    <span class="size-h4 block text-truncate color-primary">
+                      {{ findMatch "^([^.]+)" (.String "name") }}
+                    </span>
+                    <div class="indicators-container">
+                      {{ if (.Bool "updateAvailable") }}
+                      <span class="update-indicator" data-popover-type="text" data-popover-text="Update Available"></span>
+                      {{ end }}
+                      {{/* No offline indicator needed here as the item is skipped if offline */}}
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-horizontal-text">
+                  <li>{{ .String "os" }}</li>
+                  <li>{{ .String "addresses.0"}}</li>
+                </ul>
+              </li>
+              {{ end }} {{/* End if online */}}
+              {{ end }} {{/* End range */}}
+            </ul>
         - type: bookmarks
           groups:
             - title: AI Tools
