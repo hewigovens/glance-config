@@ -2,14 +2,13 @@
 
 Run:
 ```
-docker compose up -d --force-recreate
+just run
 ```
 
 Update:
 
 ```bash
-docker compose pull
-docker compose up -d --force-recreate --build
+just update
 ```
 
 

@@ -37,12 +37,12 @@
                   url: https://gemini.google.com
                 - title: Grok
                   url: https://grok.com
+                - title: GitHub
+                  url: https://github.com/copilot
                 - title: Claude
                   url: https://claude.ai
                 - title: ChatGPT
                   url: https://chat.openai.com
-                - title: GitHub
-                  url: https://github.com/copilot
 
     - size: full
       widgets:
@@ -62,13 +62,19 @@
         - type: group
           widgets:
             - type: rss
-              title: Crypto News
+              title: CoinTelegraph
               limit: 15
               collapse-after: 6
-              cache: 12h
+              cache: 6h
               feeds:
-                - url: https://cointelegraph.com/editors_pick_rss
-                  title: CoinTelegraph Picks
+                - url: https://cointelegraph.com/rss
+                  title: CoinTelegraph
+            - type: rss
+              title: CoinDesk
+              limit: 15
+              collapse-after: 6
+              cache: 6h
+              feeds:
                 - url: https://www.coindesk.com/arc/outboundfeeds/rss
                   title: CoinDesk
             - type: iframe
@@ -91,12 +97,12 @@
       widgets:
         - type: custom-api
           title: Fear & Greed Index
-          cache: 6h
-          url: https://api.alternative.me/fng/
+          cache: 12h
+          url: https://pro-api.coinmarketcap.com/v3/fear-and-greed/latest
+          headers:
+            X-CMC_PRO_API_KEY: ${CMC_API_KEY}
           template: |
-            {{ range .JSON.Array "data" }}
-              <p class="size-h4 color-paragraph"> Today is {{ .String "value_classification" }} / {{ .String "value" }}</p>
-            {{ end }}
+            <p class="size-h4 color-paragraph"> Today is {{ .JSON.String "data.value_classification" }} / {{ .JSON.String "data.value" }}</p>
         - type: markets
           markets:
             - symbol: BTC-USD
