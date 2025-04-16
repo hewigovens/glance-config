@@ -30,7 +30,7 @@
           url: https://api.tailscale.com/api/v2/tailnet/-/devices
           headers:
             Authorization: Bearer ${TAILSCALE_API_KEY}
-          cache: 60m
+          cache: 20m
           template: |
             <style>
               .update-indicator {
@@ -115,7 +115,6 @@
         - type: group
           widgets:
             - type: hacker-news
-            - type: lobsters
 
         - type: videos
           channels:
@@ -163,7 +162,7 @@
       widgets:
         - type: custom-api
           title: Fear & Greed Index
-          cache: 12h
+          cache: 6h
           url: https://pro-api.coinmarketcap.com/v3/fear-and-greed/latest
           headers:
             X-CMC_PRO_API_KEY: ${CMC_API_KEY}
