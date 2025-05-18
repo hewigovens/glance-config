@@ -4,22 +4,14 @@
       markets:
         - symbol: BTC-USD
           name: Bitcoin
-        - symbol: ETH-USD
-          name: Ethereum
         - symbol: BNB-USD
           name: BNB
-        - symbol: SOL-USD
-          name: Solana
         - symbol: USDJPY=X
           name: Japanese Yen
         - symbol: USDCNY=X
           name: Chinese Yen
         - symbol: SPY
           name: S&P 500
-        - symbol: NVDA
-          name: NVIDIA
-        - symbol: GOOG
-          name: Google
       chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
   columns:
     - size: small
