@@ -1,6 +1,26 @@
 - name: Home
-  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
-  # hide-desktop-navigation: true
+  head-widgets:
+    - type: markets
+      markets:
+        - symbol: BTC-USD
+          name: Bitcoin
+        - symbol: ETH-USD
+          name: Ethereum
+        - symbol: BNB-USD
+          name: BNB
+        - symbol: SOL-USD
+          name: Solana
+        - symbol: USDJPY=X
+          name: Japanese Yen
+        - symbol: USDCNY=X
+          name: Chinese Yen
+        - symbol: SPY
+          name: S&P 500
+        - symbol: NVDA
+          name: NVIDIA
+        - symbol: GOOG
+          name: Google
+      chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
   columns:
     - size: small
       widgets:
@@ -91,30 +111,15 @@
               {{ end }} {{/* End if online */}}
               {{ end }} {{/* End range */}}
             </ul>
-        - type: bookmarks
-          groups:
-            - title: AI Tools
-              links:
-                - title: Google AI Mode
-                  url: https://www.google.com/aimode
-                - title: Perplexity
-                  url: https://www.perplexity.ai
-                - title: Gemini
-                  url: https://gemini.google.com
-                - title: Grok
-                  url: https://grok.com
-                - title: Claude
-                  url: https://claude.ai
-                - title: GitHub
-                  url: https://github.com/copilot
-                - title: ChatGPT
-                  url: https://chat.openai.com
+
 
     - size: full
       widgets:
         - type: group
           widgets:
             - type: hacker-news
+              limit: 15
+              collapse-after: 6
 
         - type: videos
           channels:
@@ -123,7 +128,7 @@
             - UCilwQlk62k1z7aUEZPOB6yw # 小Lin说
             - UCDNeEBgigHHGtJJOpHSnadA # 森纳映画
             - UCYO_jab_esuFRV4b17AJtAw # 3Blue1Brown
-
+          collapse-after: 5
         - type: group
           widgets:
             - type: rss
@@ -168,27 +173,24 @@
             X-CMC_PRO_API_KEY: ${CMC_API_KEY}
           template: |
             <p class="size-h4 color-paragraph"> Today is {{ .JSON.String "data.value_classification" }} / {{ .JSON.String "data.value" }}</p>
-        - type: markets
-          markets:
-            - symbol: BTC-USD
-              name: Bitcoin
-            - symbol: ETH-USD
-              name: Ethereum
-            - symbol: BNB-USD
-              name: BNB
-            - symbol: SOL-USD
-              name: Solana
-            - symbol: USDJPY=X
-              name: Japanese Yen
-            - symbol: USDCNY=X
-              name: Chinese Yen
-            - symbol: SPY
-              name: S&P 500
-            - symbol: NVDA
-              name: NVIDIA
-            - symbol: GOOG
-              name: Google
-          chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
+        - type: bookmarks
+          groups:
+            - title: AI Tools
+              links:
+                - title: Google AI Mode
+                  url: https://www.google.com/aimode
+                - title: Perplexity
+                  url: https://www.perplexity.ai
+                - title: Gemini
+                  url: https://gemini.google.com
+                - title: Grok
+                  url: https://grok.com
+                - title: Claude
+                  url: https://claude.ai
+                - title: GitHub
+                  url: https://github.com/copilot
+                - title: ChatGPT
+                  url: https://chat.openai.com
 
         - type: custom-api
           title: GitHub Notifications
