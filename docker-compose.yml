@@ -9,6 +9,7 @@ services:
       # - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - 8080:8080
+    restart: always
     environment:
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - TAILSCALE_API_KEY=${TAILSCALE_API_KEY}
