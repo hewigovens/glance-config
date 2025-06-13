@@ -165,6 +165,17 @@
             X-CMC_PRO_API_KEY: ${CMC_API_KEY}
           template: |
             <p class="size-h4 color-paragraph"> Today is {{ .JSON.String "data.value_classification" }} / {{ .JSON.String "data.value" }}</p>
+        - type: custom-api
+          title: Gasflow Prediction
+          cache: 5m
+          url: https://api.gasflow.dev/predict
+          template: |
+            <p class="size-h4 color-paragraph">⛽ Base: {{ .JSON.Float "current_base_fee_gwei" }} Gwei</p>
+            <p class="size-h4 color-paragraph">
+              <span>🐢 {{ .JSON.Float "predicted_quantiles.minimum" }} </span> | 
+              <span>👍 {{ .JSON.Float "predicted_quantiles.normal" }} </span> | 
+              <span>🚀 {{ .JSON.Float "predicted_quantiles.fast" }} </span>
+            </p>
         - type: bookmarks
           groups:
             - title: AI Tools
