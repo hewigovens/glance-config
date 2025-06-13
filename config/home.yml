@@ -112,17 +112,6 @@
             - type: hacker-news
               limit: 15
               collapse-after: 6
-
-        - type: videos
-          channels:
-            - UCvj3W3zjaIL5RRlECB1kH0g # Sociostanding
-            - UCgQwWhhQskoE_8VrxoHr3EA # Maddie's Do You Know
-            - UCilwQlk62k1z7aUEZPOB6yw # 小Lin说
-            - UCDNeEBgigHHGtJJOpHSnadA # 森纳映画
-            - UCYO_jab_esuFRV4b17AJtAw # 3Blue1Brown
-          collapse-after: 5
-        - type: group
-          widgets:
             - type: rss
               title: CoinTelegraph
               limit: 15
@@ -139,6 +128,20 @@
               feeds:
                 - url: https://www.coindesk.com/arc/outboundfeeds/rss
                   title: CoinDesk
+        - type: videos
+          style: grid-cards
+          collapse-after-rows: 2
+          channels:
+            - UCvj3W3zjaIL5RRlECB1kH0g # Sociostanding
+            - UCgQwWhhQskoE_8VrxoHr3EA # Maddie's Do You Know
+            - UCilwQlk62k1z7aUEZPOB6yw # 小Lin说
+            - UCDNeEBgigHHGtJJOpHSnadA # 森纳映画
+            - UCYO_jab_esuFRV4b17AJtAw # 3Blue1Brown
+            - UCjlPLMYEsq0pjgLL1q24mSg # Bonnie Blockchain
+            - UC1QxOK5YpyAyFCN_xiPfgHw # 新官场
+            - UCKFB_rVEFEF3l-onQGvGx1A # Yixi
+        - type: group
+          widgets:
             - type: iframe
               title: Dune Index
               source: https://dune.com/embeds/4207102/7081093?darkMode=true
