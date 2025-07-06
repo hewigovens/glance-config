@@ -1,7 +1,7 @@
 services:
   glance:
     container_name: glance
-    image: glanceapp/glance
+    image: glanceapp/glance:${GLANCE_VERSION}
     volumes:
       - ./config:/app/config
       - ./assets:/app/assets
@@ -14,3 +14,4 @@ services:
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       - TAILSCALE_API_KEY=${TAILSCALE_API_KEY}
       - CMC_API_KEY=${CMC_API_KEY}
+      - GLANCE_VERSION=${GLANCE_VERSION}
