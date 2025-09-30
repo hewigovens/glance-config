@@ -104,7 +104,6 @@
               {{ end }} {{/* End range */}}
             </ul>
 
-
     - size: full
       widgets:
         - type: group
@@ -169,15 +168,25 @@
           template: |
             <p class="size-h4 color-paragraph"> Today is {{ .JSON.String "data.value_classification" }} / {{ .JSON.String "data.value" }}</p>
         - type: custom-api
-          title: Gasflow Prediction
+          title: Blocknative Gas Estimates
           cache: 5m
-          url: https://api.gasflow.dev/predict
+          url: https://api.blocknative.com/gasprices/basefee-estimates
           template: |
-            <p class="size-h4 color-paragraph">⛽ Base: {{ .JSON.Float "current_base_fee_gwei" }} Gwei</p>
+            {{ $estimates := .JSON.Array "estimatedBaseFees" }}
+            {{ $pending1 := index $estimates 0 }}
+            {{ $pending2 := index $estimates 1 }}
+            {{ $pending3 := index $estimates 2 }}
+            {{ $slow := index ($pending1.Array "pending+1") 1 }}
+            {{ $normal := index ($pending2.Array "pending+2") 0 }}
+            {{ $fast := index ($pending3.Array "pending+3") 0 }}
+            {{ $slowTipObj := index ($slow.Array "priorityFee") 0 }}
+            {{ $normalTipObj := index ($normal.Array "priorityFee") 0 }}
+            {{ $fastTipObj := index ($fast.Array "priorityFee") 0 }}
+            <p class="size-h4 color-paragraph">⛽ Base: {{ printf "%.2f" (.JSON.Float "baseFeePerGas") }} Gwei</p>
             <p class="size-h4 color-paragraph">
-              <span>🐢 {{ .JSON.Float "predicted_quantiles.minimum" }} </span> | 
-              <span>👍 {{ .JSON.Float "predicted_quantiles.normal" }} </span> | 
-              <span>🚀 {{ .JSON.Float "predicted_quantiles.fast" }} </span>
+              <span>🐢 {{ printf "%.2f" ($slow.Float "baseFee") }} (tip {{ printf "%.2f" ($slowTipObj.Float "tip") }})</span> |
+              <span>👍 {{ printf "%.2f" ($normal.Float "baseFee") }} (tip {{ printf "%.2f" ($normalTipObj.Float "tip") }})</span> |
+              <span>🚀 {{ printf "%.2f" ($fast.Float "baseFee") }} (tip {{ printf "%.2f" ($fastTipObj.Float "tip") }})</span>
             </p>
         - type: bookmarks
           groups:
