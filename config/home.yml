@@ -142,8 +142,13 @@
         - type: group
           widgets:
             - type: iframe
-              title: Dune Index
-              source: https://dune.com/embeds/4207102/7081093?darkMode=true
+              title: Global index
+              source: https://dune.com/embeds/4086150/6880315?darkMode=true&display=iframe
+              height: 400
+
+            - type: iframe
+              title: Chain index
+              source: https://dune.com/embeds/4207102/7081093?darkMode=true&display=iframe
               height: 400
 
             - type: iframe
@@ -179,14 +184,11 @@
             {{ $slow := index ($pending1.Array "pending+1") 1 }}
             {{ $normal := index ($pending2.Array "pending+2") 0 }}
             {{ $fast := index ($pending3.Array "pending+3") 0 }}
-            {{ $slowTipObj := index ($slow.Array "priorityFee") 0 }}
-            {{ $normalTipObj := index ($normal.Array "priorityFee") 0 }}
-            {{ $fastTipObj := index ($fast.Array "priorityFee") 0 }}
             <p class="size-h4 color-paragraph">⛽ Base: {{ printf "%.2f" (.JSON.Float "baseFeePerGas") }} Gwei</p>
             <p class="size-h4 color-paragraph">
-              <span>🐢 {{ printf "%.2f" ($slow.Float "baseFee") }} (tip {{ printf "%.2f" ($slowTipObj.Float "tip") }})</span> |
-              <span>👍 {{ printf "%.2f" ($normal.Float "baseFee") }} (tip {{ printf "%.2f" ($normalTipObj.Float "tip") }})</span> |
-              <span>🚀 {{ printf "%.2f" ($fast.Float "baseFee") }} (tip {{ printf "%.2f" ($fastTipObj.Float "tip") }})</span>
+              <span>🐢 {{ printf "%.2f" ($slow.Float "baseFee") }}</span> |
+              <span>👍 {{ printf "%.2f" ($normal.Float "baseFee") }}</span> |
+              <span>🚀 {{ printf "%.2f" ($fast.Float "baseFee") }}</span>
             </p>
         - type: bookmarks
           groups:
