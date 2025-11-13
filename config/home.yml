@@ -4,14 +4,25 @@
       markets:
         - symbol: BTC-USD
           name: Bitcoin
+        - symbol: ETH-USD
+          name: Ethereum
         - symbol: BNB-USD
           name: BNB
+        - symbol: SOL-USD
+          name: Solana
         - symbol: USDJPY=X
           name: Japanese Yen
         - symbol: USDCNY=X
           name: Chinese Yen
+        - symbol: CNYJPY=X
+          name: Chinese Yen to Japanese Yen
         - symbol: SPY
           name: S&P 500
+        - symbol: TSLA
+          name: Tesla
+        - symbol: NVDA
+          name: NVIDIA
+          
       chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
   columns:
     - size: small
@@ -129,7 +140,7 @@
                   title: CoinDesk
         - type: videos
           style: grid-cards
-          collapse-after-rows: 2
+          collapse-after-rows: 4
           channels:
             - UCvj3W3zjaIL5RRlECB1kH0g # Sociostanding
             - UCgQwWhhQskoE_8VrxoHr3EA # Maddie's Do You Know
@@ -139,16 +150,12 @@
             - UCjlPLMYEsq0pjgLL1q24mSg # Bonnie Blockchain
             - UC1QxOK5YpyAyFCN_xiPfgHw # 新官场
             - UCKFB_rVEFEF3l-onQGvGx1A # Yixi
+            - UCKV2yWPB3wn0RTZh3cTD8YA # 硅谷101
         - type: group
           widgets:
             - type: iframe
-              title: Global index
-              source: https://dune.com/embeds/4086150/6880315?darkMode=true&display=iframe
-              height: 400
-
-            - type: iframe
               title: Chain index
-              source: https://dune.com/embeds/4207102/7081093?darkMode=true&display=iframe
+              source: https://dune.com/embeds/6202998/9898367?darkMode=true&display=iframe
               height: 400
 
             - type: iframe
@@ -196,12 +203,12 @@
               links:
                 - title: Google AI Mode
                   url: https://www.google.com/aimode
+                - title: Claude Code
+                  url: https://claude.ai/code
                 - title: Windsurf
                   url: https://windsurf.com/refer?referral_code=5088539339
                 - title: Gemini
                   url: https://gemini.google.com
-                - title: Claude Code
-                  url: https://claude.ai/code
                 - title: Codex
                   url: https://chatgpt.com/codex
 
