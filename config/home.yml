@@ -200,14 +200,10 @@
                   url: https://windsurf.com/refer?referral_code=5088539339
                 - title: Gemini
                   url: https://gemini.google.com
-                - title: Dia
-                  url: https://diabrowser.com/invite/HI12EU
-                - title: Claude
-                  url: https://claude.ai
-                - title: GitHub
-                  url: https://github.com/copilot
-                - title: ChatGPT
-                  url: https://chat.openai.com
+                - title: Claude Code
+                  url: https://claude.ai/code
+                - title: Codex
+                  url: https://chatgpt.com/codex
 
         - type: custom-api
           title: GitHub Notifications
