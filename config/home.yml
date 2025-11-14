@@ -121,11 +121,11 @@
           widgets:
             - type: hacker-news
               limit: 15
-              collapse-after: 6
+              collapse-after: 8
             - type: rss
               title: CoinTelegraph
               limit: 15
-              collapse-after: 6
+              collapse-after: 8
               cache: 6h
               feeds:
                 - url: https://cointelegraph.com/rss
@@ -133,14 +133,14 @@
             - type: rss
               title: CoinDesk
               limit: 15
-              collapse-after: 6
+              collapse-after: 8
               cache: 6h
               feeds:
                 - url: https://www.coindesk.com/arc/outboundfeeds/rss
                   title: CoinDesk
         - type: videos
           style: grid-cards
-          collapse-after-rows: 4
+          collapse-after-rows: 3
           channels:
             - UCvj3W3zjaIL5RRlECB1kH0g # Sociostanding
             - UCgQwWhhQskoE_8VrxoHr3EA # Maddie's Do You Know
