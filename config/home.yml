@@ -201,16 +201,26 @@
           groups:
             - title: AI Tools
               links:
-                - title: Google AI Mode
-                  url: https://www.google.com/aimode
-                - title: Claude Code
-                  url: https://claude.ai/code
-                - title: Windsurf
-                  url: https://windsurf.com/refer?referral_code=5088539339
-                - title: Gemini
-                  url: https://gemini.google.com
                 - title: Codex
                   url: https://chatgpt.com/codex
+                - title: Gemini
+                  url: https://gemini.google.com
+                - title: ChatGPT
+                  url: https://chatgpt.com/
+                - title: Windsurf
+                  url: https://windsurf.com/refer?referral_code=5088539339
+                - title: Claude Code
+                  url: https://claude.ai/code
+                - title: Google AI Mode
+                  url: https://www.google.com/aimode
+            - title: Speed test tools
+              links:
+                - title: Netflix Fast
+                  url: https://fast.com/
+                - title: Cloudflare Speed Test
+                  url: https://speed.cloudflare.com/
+                - title: Google Fiber Speed Test
+                  url: https://fiber.google.com/speedtest/
 
         - type: custom-api
           title: GitHub Notifications
