@@ -22,7 +22,7 @@
           name: Tesla
         - symbol: NVDA
           name: NVIDIA
-          
+
       chart-link-template: https://finance.yahoo.com/quote/{SYMBOL}/
   columns:
     - size: small
@@ -212,7 +212,7 @@
                 - title: Claude Code
                   url: https://claude.ai/code
                 - title: Google AI Mode
-                  url: https://www.google.com/aimode
+                  url: https://google.ai
             - title: Speed test tools
               links:
                 - title: Netflix Fast
