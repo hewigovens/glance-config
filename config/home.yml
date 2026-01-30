@@ -47,6 +47,24 @@
           servers:
             - type: local
               name: Services
+
+        - type: html
+          title: 🦞 OpenClaw
+          title-url: https://a1.end-gentoo.ts.net/
+          source: |
+            <style>
+              .openclaw-status { padding: 8px; }
+              .openclaw-status .name { font-size: 1.1em; color: var(--color-primary); }
+              .openclaw-status .info { color: var(--color-text-subdue); font-size: 0.9em; margin-top: 4px; }
+              .openclaw-status .online { color: var(--color-positive); }
+            </style>
+            <div class="openclaw-status">
+              <div class="name">🔖 ShioriX</div>
+              <div class="info">
+                <span class="online">● Online</span> · Telegram · claude-opus-4-5
+              </div>
+              <div class="info">Gateway: a1.end-gentoo.ts.net</div>
+            </div>
         - type: custom-api
           title: Tailscale Devices
           title-url: https://login.tailscale.com/admin/machines
@@ -201,6 +219,8 @@
           groups:
             - title: AI Tools
               links:
+                - title: OpenClaw
+                  url: https://a1.end-gentoo.ts.net/
                 - title: Codex
                   url: https://chatgpt.com/codex
                 - title: Gemini
