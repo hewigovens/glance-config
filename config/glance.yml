@@ -16,4 +16,4 @@ pages:
 
 branding:
   custom-footer: |
-    <p><a href="https://github.com/glanceapp/glance">Glance ${GLANCE_VERSION}</a> hosted on <a href="https://hewig.dev">hewig.dev</a>, managed by <a href="https://github.com/shiorixbot">ShioriX</a></p>
+    <p><a href="https://github.com/glanceapp/glance">Glance ${GLANCE_VERSION}</a> hosted on <a href="https://hewig.dev">hewig.dev</a>, managed by <a href="https://shiorix.com">ShioriX</a></p>
