@@ -55,6 +55,31 @@
           cache: 1m
           template: |
             <p class="size-h4">🔖 {{ .JSON.String "name" }} <span style="color: var(--color-positive);">● {{ .JSON.String "status" }}</span></p>
+
+        - type: custom-api
+          title: Codex Usage
+          title-url: https://chatgpt.com/codex/settings/usage
+          url: http://10.0.0.242:18790/codex-usage
+          cache: 2m
+          template: |
+            {{ if not (.JSON.Bool "ok") }}
+              <p class="size-h4 color-negative">{{ .JSON.String "error" }}</p>
+            {{ else }}
+              <ul class="list list-gap-4">
+                {{ range .JSON.Array "windows" }}
+                <li>
+                  <div class="flex items-center justify-between">
+                    <span class="size-h5 color-subdue">{{ .String "label" }}</span>
+                    <span class="size-h5" style="color: var(--color-{{ .String "color" }});">{{ printf "%.0f" (.Float "pct") }}%</span>
+                  </div>
+                  <div class="flex items-center gap-6">
+                    <span style="font-family: monospace; color: var(--color-{{ .String "color" }});">{{ .String "bar" }}</span>
+                    <span class="size-h6 color-subdue">↺ {{ .String "resets_in" }}</span>
+                  </div>
+                </li>
+                {{ end }}
+              </ul>
+            {{ end }}
         - type: custom-api
           title: Tailscale Devices
           title-url: https://login.tailscale.com/admin/machines
@@ -209,29 +234,27 @@
           groups:
             - title: AI Tools
               links:
-                - title: OpenClaw
-                  url: https://a1.end-gentoo.ts.net/
-                - title: Codex
-                  url: https://chatgpt.com/codex
+                - title: Codex Usage
+                  url: https://chatgpt.com/codex/settings/usage
                 - title: Gemini
                   url: https://gemini.google.com
                 - title: ChatGPT
                   url: https://chatgpt.com/
-                - title: Windsurf
-                  url: https://windsurf.com/refer?referral_code=5088539339
+                - title: OpenClaw
+                  url: https://a1.end-gentoo.ts.net/
                 - title: Antigravity
                   url: https://antigravity.google/
-                - title: Claude Code
-                  url: https://claude.ai/code
-                - title: Google AI Mode
+                - title: Claude Code Usage
+                  url: https://claude.ai/settings/usage
+                - title: Google.AI
                   url: https://google.ai
             - title: Speed test tools
               links:
                 - title: Netflix Fast
                   url: https://fast.com/
-                - title: Cloudflare Speed Test
+                - title: Cloudflare 
                   url: https://speed.cloudflare.com/
-                - title: Google Fiber Speed Test
+                - title: Google Fiber 
                   url: https://fiber.google.com/speedtest/
 
         - type: custom-api
